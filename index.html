@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>函館らーめん 汐のや｜西小山 ZINE Vol.01 ― 街の塩らーめん</title>
+  <meta name="description" content="東京・西小山駅前、函館仕込みの澄んだ塩らーめんを一杯650円から。無化調、家族みんなで通える街のラーメン屋。2016年開店。" />
+  <meta property="og:title" content="函館らーめん 汐のや ― 西小山 ZINE" />
+  <meta property="og:description" content="函館の澄んだ塩らーめんを、西小山の片隅で。無化調・¥650・無休。家族みんなの街のラーメン屋。" />
+  <meta name="theme-color" content="#f3ead7" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Kaisei+Decol:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Yusei+Magic&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- paper + halftone overlays -->
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="halftone-edge" aria-hidden="true"></div>
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="masthead__row">
+      <a href="#top" class="masthead__brand" aria-label="函館らーめん 汐のや トップへ">
+        <span class="masthead__seal" aria-hidden="true">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="60" height="60" fill="#c8302e"/>
+            <rect x="2" y="2" width="60" height="60" fill="none" stroke="#1a1714" stroke-width="0.6"/>
+            <text x="32" y="44" text-anchor="middle" font-family="'Reggae One', sans-serif" font-size="36" fill="#f3ead7">汐</text>
+          </svg>
+        </span>
+        <span class="masthead__brand-text">
+          <span class="masthead__brand-jp">函館らーめん 汐のや</span>
+          <span class="masthead__brand-en">Hakodate Ramen Shionoya / Est. 2016</span>
+        </span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="主要メニュー">
+        <a href="#story"><span class="num">01</span>物語</a>
+        <a href="#kodawari"><span class="num">02</span>こだわり</a>
+        <a href="#menu"><span class="num">03</span>お品書き</a>
+        <a href="#room"><span class="num">04</span>店内</a>
+        <a href="#access"><span class="num">05</span>ご案内</a>
+      </nav>
+
+      <button class="masthead__toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="masthead__ticker" aria-hidden="true">
+      <div class="masthead__ticker-track">
+        <span>★ HAKODATE RAMEN SHIONOYA</span><span>★ 無化調 / NO MSG</span><span>★ 函館仕込みの塩らーめん</span><span>★ NISHI-KOYAMA SINCE 2016.11.10</span><span>★ 塩らーめん ¥650</span><span>★ 家族みんなの一杯</span>
+        <span>★ HAKODATE RAMEN SHIONOYA</span><span>★ 無化調 / NO MSG</span><span>★ 函館仕込みの塩らーめん</span><span>★ NISHI-KOYAMA SINCE 2016.11.10</span><span>★ 塩らーめん ¥650</span><span>★ 家族みんなの一杯</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO / COVER ============ -->
+  <section id="top" class="cover">
+    <div class="cover__corner cover__corner--tl" aria-hidden="true">
+      <span class="cover__corner-label">Vol. 01</span>
+      <span class="cover__corner-sub">西小山 / Nishi-Koyama</span>
+      <span class="cover__corner-sub">2016 ― 現在</span>
+    </div>
+    <div class="cover__corner cover__corner--tr" aria-hidden="true">
+      <span class="cover__corner-label">無化調</span>
+      <span class="cover__corner-sub">No MSG. Just bones, kelp,</span>
+      <span class="cover__corner-sub">salt, and time.</span>
+    </div>
+
+    <!-- Tategaki tagline -->
+    <div class="cover__tategaki" aria-hidden="true">
+      <span>函館の港から、西小山の片隅へ。</span>
+    </div>
+
+    <!-- Big stacked title -->
+    <div class="cover__title">
+      <span class="cover__title-prelude">函館らーめん</span>
+      <h1 class="cover__title-main" aria-label="汐のや">
+        <span class="char" style="--i:0">汐</span><span class="char" style="--i:1">の</span><span class="char" style="--i:2">や</span>
+      </h1>
+      <span class="cover__title-latin">Shionoya — A neighborhood bowl from Hakodate, served in Nishi-Koyama.</span>
+    </div>
+
+    <!-- price stamp -->
+    <div class="cover__pricestamp" aria-hidden="true">
+      <div class="cover__pricestamp-inner">
+        <span class="cover__pricestamp-top">看板の一杯</span>
+        <span class="cover__pricestamp-name">塩らーめん</span>
+        <span class="cover__pricestamp-price"><em>¥</em>650</span>
+        <span class="cover__pricestamp-bottom">無化調 ／ 鶏ガラ＋昆布</span>
+      </div>
+    </div>
+
+    <!-- bowl illustration (halftone style) -->
+    <div class="cover__bowl" aria-hidden="true">
+      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="halftone" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="3" cy="3" r="1.2" fill="#1a1714"/>
+          </pattern>
+          <pattern id="halftone-light" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="4" r="1" fill="#1a1714" opacity="0.5"/>
+          </pattern>
+          <radialGradient id="broth" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#f1d27d"/>
+            <stop offset="55%" stop-color="#d9a13a"/>
+            <stop offset="100%" stop-color="#a87515"/>
+          </radialGradient>
+          <clipPath id="bowlClip">
+            <ellipse cx="180" cy="200" rx="155" ry="38"/>
+          </clipPath>
+        </defs>
+
+        <!-- steam -->
+        <g class="cover__bowl-steam" stroke="#1a1714" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55">
+          <path d="M120 100 q -10 -20 4 -36 q 14 -16 0 -34"/>
+          <path d="M170 80 q -8 -18 4 -32 q 12 -14 0 -28"/>
+          <path d="M220 100 q -10 -20 4 -36 q 14 -16 0 -34"/>
+        </g>
+
+        <!-- bowl outer shadow ring (paper-cut) -->
+        <ellipse cx="180" cy="225" rx="170" ry="22" fill="#1a1714" opacity="0.12"/>
+
+        <!-- broth -->
+        <ellipse cx="180" cy="200" rx="155" ry="38" fill="url(#broth)"/>
+
+        <!-- noodle squiggles (clipped) -->
+        <g clip-path="url(#bowlClip)" stroke="#fff5d8" stroke-width="1.8" fill="none" stroke-linecap="round">
+          <path d="M60 198 q 30 -14 60 0 t 60 0 t 60 0 t 60 0"/>
+          <path d="M55 205 q 32 -12 64 0 t 64 0 t 64 0 t 64 0" opacity="0.8"/>
+          <path d="M60 212 q 30 -10 60 0 t 60 0 t 60 0 t 60 0" opacity="0.7"/>
+        </g>
+
+        <!-- chashu (paper-cut style) -->
+        <g clip-path="url(#bowlClip)">
+          <ellipse cx="120" cy="200" rx="38" ry="10" fill="#b87044"/>
+          <ellipse cx="120" cy="198" rx="38" ry="10" fill="none" stroke="#1a1714" stroke-width="1.5"/>
+          <ellipse cx="120" cy="198" rx="22" ry="6" fill="#d8a47e" opacity="0.6"/>
+        </g>
+
+        <!-- ajitama -->
+        <g clip-path="url(#bowlClip)">
+          <ellipse cx="230" cy="198" rx="22" ry="10" fill="#fff5d8"/>
+          <ellipse cx="230" cy="198" rx="22" ry="10" fill="none" stroke="#1a1714" stroke-width="1.5"/>
+          <ellipse cx="230" cy="200" rx="10" ry="5" fill="#e9a23b"/>
+        </g>
+
+        <!-- nori -->
+        <g clip-path="url(#bowlClip)">
+          <rect x="78" y="175" width="16" height="26" fill="#1a1714"/>
+          <rect x="78" y="175" width="16" height="26" fill="url(#halftone-light)" opacity="0.4"/>
+        </g>
+
+        <!-- naruto -->
+        <g clip-path="url(#bowlClip)">
+          <circle cx="180" cy="195" r="11" fill="#f8efe1"/>
+          <circle cx="180" cy="195" r="11" fill="none" stroke="#c8302e" stroke-width="1.4"/>
+          <path d="M171 195 q 4 -6 9 0 q 5 6 9 0" fill="none" stroke="#c8302e" stroke-width="1.4"/>
+        </g>
+
+        <!-- negi dots -->
+        <g fill="#5a7e3a">
+          <circle cx="155" cy="192" r="1.8"/>
+          <circle cx="172" cy="208" r="1.8"/>
+          <circle cx="200" cy="190" r="1.8"/>
+          <circle cx="215" cy="210" r="1.8"/>
+          <circle cx="148" cy="207" r="1.8"/>
+          <circle cx="195" cy="212" r="1.8"/>
+        </g>
+
+        <!-- bowl body -->
+        <path d="M25 200 Q180 360 335 200 Z" fill="#1a1714"/>
+        <!-- bowl halftone shading -->
+        <path d="M25 200 Q180 360 335 200 Z" fill="url(#halftone)" opacity="0.35"/>
+        <!-- bowl rim -->
+        <ellipse cx="180" cy="200" rx="155" ry="38" fill="none" stroke="#1a1714" stroke-width="2.5"/>
+        <!-- bowl belly stripe -->
+        <path d="M55 245 Q180 340 305 245" fill="none" stroke="#c8302e" stroke-width="3"/>
+        <!-- bowl kanji -->
+        <text x="180" y="288" text-anchor="middle" font-family="'Reggae One', sans-serif" font-size="34" fill="#f3ead7">汐</text>
+      </svg>
+    </div>
+
+    <!-- footer meta strip -->
+    <div class="cover__meta">
+      <a href="#menu" class="cover__cta">
+        お品書きをひらく
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="cover__meta-item"><em>営</em>11:00 – 20:00 ／ 無休</span>
+      <span class="cover__meta-item"><em>駅</em>東急目黒線 西小山 徒歩1分</span>
+      <a href="tel:0337881031" class="cover__meta-item cover__meta-tel">
+        <em>℡</em>03-3788-1031
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ STORY / 物語 ============ -->
+  <section id="story" class="story">
+    <div class="folio">
+      <span class="folio__no">01</span>
+      <span class="folio__title">物語</span>
+      <span class="folio__rule"></span>
+      <span class="folio__en">Story</span>
+    </div>
+
+    <div class="story__grid">
+      <div class="story__lede">
+        <p class="story__year" aria-hidden="true">2016</p>
+        <h2 class="story__head">
+          函館の港から、<br/>
+          <em>西小山の片隅へ。</em>
+        </h2>
+        <p class="story__body">
+          イカ漁の灯、青函連絡船の汽笛、夜景の坂道——
+          北海道・函館は、澄んだ海の匂いがする港町。
+          そんな函館で愛されてきた<mark>塩らーめん</mark>を、
+          東京・西小山駅前のちいさな店で、ひと椀ずつ。
+        </p>
+        <p class="story__body">
+          2016年11月、駅前にのれんを掲げて以来、
+          通勤前の一杯、子育てのあいまの昼ごはん、
+          ひとり呑みの締め、家族そろっての夕ごはんまで——
+          毎日、無休で、街のひとを待っています。
+        </p>
+      </div>
+
+      <aside class="story__voice" aria-label="店主のことば">
+        <span class="story__voice-tag">店主のことば</span>
+        <p class="story__voice-text">
+          「ベビーカーのお子様連れも、おひとり様も、
+          年配の方も。みなさまの
+          <em>街のラーメン屋</em>
+          でありたい。」
+        </p>
+        <div class="story__voice-foot">
+          <span class="story__voice-hand">汐のや 店主</span>
+        </div>
+      </aside>
+
+      <div class="story__tategaki" aria-hidden="true">
+        <span>北の港の塩、南の街の人。一杯のなかで出会う、いつもの味。</span>
+      </div>
+
+      <div class="story__stats">
+        <div class="story__stat"><span class="story__stat-num">2016</span><span class="story__stat-label">開店</span></div>
+        <div class="story__stat"><span class="story__stat-num">無休</span><span class="story__stat-label">年中</span></div>
+        <div class="story__stat"><span class="story__stat-num">¥650</span><span class="story__stat-label">塩らーめん</span></div>
+        <div class="story__stat"><span class="story__stat-num">1分</span><span class="story__stat-label">駅から</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KODAWARI / こだわり ============ -->
+  <section id="kodawari" class="kodawari">
+    <div class="folio folio--invert">
+      <span class="folio__no">02</span>
+      <span class="folio__title">こだわり</span>
+      <span class="folio__rule"></span>
+      <span class="folio__en">Three Pillars</span>
+    </div>
+
+    <div class="kodawari__intro">
+      <p>
+        函館らーめんの真髄は、<em>引き算</em>のおいしさ。
+        余計なものを入れないからこそ、素材のうま味がまっすぐ届く。
+      </p>
+    </div>
+
+    <div class="kodawari__grid">
+      <article class="pillar">
+        <div class="pillar__no">
+          <span class="pillar__no-kanji">壱</span>
+          <span class="pillar__no-rom">No. 1</span>
+        </div>
+        <h3 class="pillar__title">澄んだ、塩。<span>The Clear Salt.</span></h3>
+        <p class="pillar__body">
+          鶏ガラと昆布、香味野菜だけ。<mark>無化調</mark>でじっくり引いた、
+          黄金色の清湯スープ。すっと抜けて、あとに残らない。
+          函館らーめんらしい、軽やかな飲みごたえ。
+        </p>
+        <div class="pillar__chips">
+          <span>無化調</span><span>鶏ガラ</span><span>昆布</span><span>清湯</span>
+        </div>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar__no">
+          <span class="pillar__no-kanji">弐</span>
+          <span class="pillar__no-rom">No. 2</span>
+        </div>
+        <h3 class="pillar__title">二種の麺。<span>Two Noodles.</span></h3>
+        <p class="pillar__body">
+          塩・わんたん・あさり塩には、軽快な<em>細麺ストレート</em>。
+          味噌・たんめん・つけめんには、小麦薫る<em>中太麺</em>。
+          一杯に合わせて、麺をえらぶ。
+        </p>
+        <div class="pillar__chips">
+          <span>細麺</span><span>中太麺</span><span>硬さ調整可</span>
+        </div>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar__no">
+          <span class="pillar__no-kanji">参</span>
+          <span class="pillar__no-rom">No. 3</span>
+        </div>
+        <h3 class="pillar__title">街の、台所。<span>The Neighborhood Kitchen.</span></h3>
+        <p class="pillar__body">
+          店内にはおもちゃの箱、ベビーカーで入れる入口、
+          麺半分にコーン入りの<mark>お子様らーめん ¥350</mark>。
+          ご年配のかたも、ひとり呑みのかたも、いつでもどうぞ。
+        </p>
+        <div class="pillar__chips">
+          <span>子連れ◎</span><span>全席禁煙</span><span>ひとり呑み◎</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ MENU / お品書き ============ -->
+  <section id="menu" class="menu">
+    <div class="folio">
+      <span class="folio__no">03</span>
+      <span class="folio__title">お品書き</span>
+      <span class="folio__rule"></span>
+      <span class="folio__en">Menu</span>
+    </div>
+
+    <p class="menu__note">
+      ※ 価格は税込・取材時点の参考価格です。最新のお値段は店頭にてご確認ください。
+    </p>
+
+    <!-- HOSOMEN -->
+    <div class="menu__block">
+      <div class="menu__block-head">
+        <span class="menu__block-no">A</span>
+        <h3 class="menu__block-title">
+          細麺<span class="menu__block-en">Thin Straight Noodles</span>
+        </h3>
+        <p class="menu__block-lede">函館仕込みの塩スープと、いちばん相性のいい組み合わせ。</p>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item menu__item--star">
+          <span class="menu__item-flag">看板</span>
+          <span class="menu__item-name">塩らーめん</span>
+          <span class="menu__item-desc">無化調の鶏ガラ＋昆布の清湯。チャーシュー・メンマ・ワカメ・ナルト。</span>
+          <span class="menu__item-price"><em>¥</em>650</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">味玉塩らーめん</span>
+          <span class="menu__item-desc">黄身がとろりと半熟の味玉をひとつ。</span>
+          <span class="menu__item-price"><em>¥</em>750</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">特製塩らーめん</span>
+          <span class="menu__item-desc">味玉・チャーシュー増量の全部のせ。</span>
+          <span class="menu__item-price"><em>¥</em>850</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">海老わんたんめん</span>
+          <span class="menu__item-desc">海老のすり身を包んだ、自家製わんたん入り。</span>
+          <span class="menu__item-price"><em>¥</em>750</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">ネギ塩らーめん</span>
+          <span class="menu__item-desc">白ネギの千切りを山盛りに。</span>
+          <span class="menu__item-price"><em>¥</em>750</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">辛ネギ塩らーめん</span>
+          <span class="menu__item-desc">ピリッと辛いネギだれで。</span>
+          <span class="menu__item-price"><em>¥</em>800</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">あさり塩らーめん</span>
+          <span class="menu__item-desc">あさりの出汁がすっと重なる、しめの一杯にも。</span>
+          <span class="menu__item-price"><em>¥</em>850</span>
+        </li>
+        <li class="menu__item menu__item--kid">
+          <span class="menu__item-flag menu__item-flag--kid">子</span>
+          <span class="menu__item-name">お子様らーめん</span>
+          <span class="menu__item-desc">麺は半分。コーン入りで、ちいさなお口にも。</span>
+          <span class="menu__item-price"><em>¥</em>350</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CHUTAIMEN -->
+    <div class="menu__block">
+      <div class="menu__block-head">
+        <span class="menu__block-no">B</span>
+        <h3 class="menu__block-title">
+          中太麺<span class="menu__block-en">Medium-Thick Noodles</span>
+        </h3>
+        <p class="menu__block-lede">小麦のかおりとコシ。濃いめのスープと、つけめんに。</p>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item">
+          <span class="menu__item-name">味噌らーめん</span>
+          <span class="menu__item-desc">マイルドで優しい、家庭の味噌の延長線。</span>
+          <span class="menu__item-price"><em>¥</em>800</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">辛味噌らーめん</span>
+          <span class="menu__item-desc">辛味噌を溶かしながら、ゆっくり。</span>
+          <span class="menu__item-price"><em>¥</em>850</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">野菜たんめん（塩）</span>
+          <span class="menu__item-desc">炒め野菜たっぷり。ごはんがすすむ一杯。</span>
+          <span class="menu__item-price"><em>¥</em>800</span>
+        </li>
+        <li class="menu__item">
+          <span class="menu__item-name">つけめん（塩）</span>
+          <span class="menu__item-desc">塩スープで仕立てた、つけめん。</span>
+          <span class="menu__item-price"><em>¥</em>800</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TOPPING / SIDE / DRINKS -->
+    <div class="menu__extras">
+      <div class="menu__extras-block">
+        <h4>トッピング <span>各 ¥100</span></h4>
+        <ul class="menu__chip-list">
+          <li>麺大盛り</li><li>味玉</li><li>チャーシュー 2枚</li><li>白ネギ千切り</li><li>メンマ</li><li>海苔 8枚</li><li>コーン</li><li>バター</li>
+        </ul>
+      </div>
+
+      <div class="menu__extras-block">
+        <h4>ご飯もの <span>Rice</span></h4>
+        <ul class="menu__chip-list menu__chip-list--price">
+          <li>チャーシュー丼 <em>¥300</em></li>
+          <li>メンタイ丼 <em>¥250</em></li>
+          <li>半ライス <em>¥150</em></li>
+        </ul>
+      </div>
+
+      <div class="menu__extras-block">
+        <h4>お飲み物 <span>Drinks</span></h4>
+        <ul class="menu__chip-list menu__chip-list--price">
+          <li>生ビール <em>¥350</em></li>
+          <li>缶ビール <em>¥350</em></li>
+          <li>チューハイ レモン <em>¥300</em></li>
+          <li>チューハイ グレフル <em>¥300</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOM / 店内 ============ -->
+  <section id="room" class="room">
+    <div class="folio folio--invert">
+      <span class="folio__no">04</span>
+      <span class="folio__title">店内</span>
+      <span class="folio__rule"></span>
+      <span class="folio__en">Inside the Shop</span>
+    </div>
+
+    <div class="room__grid">
+      <figure class="room__card room__card--wide">
+        <div class="room__art room__art--counter" aria-hidden="true">
+          <!-- counter illustration -->
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="240" fill="#ebe0c2"/>
+            <!-- wall halftone -->
+            <rect width="400" height="240" fill="url(#htA)" opacity="0.18"/>
+            <defs>
+              <pattern id="htA" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                <circle cx="3" cy="3" r="1" fill="#1a1714"/>
+              </pattern>
+            </defs>
+            <!-- noren -->
+            <rect x="30" y="0" width="340" height="60" fill="#c8302e"/>
+            <rect x="30" y="55" width="340" height="5" fill="#1a1714"/>
+            <text x="200" y="42" text-anchor="middle" font-family="'Reggae One', sans-serif" font-size="32" fill="#f3ead7">函館らーめん 汐のや</text>
+            <!-- noren cuts -->
+            <rect x="135" y="0" width="2" height="60" fill="#1a1714" opacity="0.6"/>
+            <rect x="200" y="0" width="2" height="60" fill="#1a1714" opacity="0.6"/>
+            <rect x="265" y="0" width="2" height="60" fill="#1a1714" opacity="0.6"/>
+            <!-- counter -->
+            <rect x="0" y="170" width="400" height="70" fill="#5a3a22"/>
+            <rect x="0" y="170" width="400" height="6" fill="#3a2515"/>
+            <!-- bowls on counter -->
+            <g transform="translate(60,150)">
+              <ellipse cx="0" cy="20" rx="32" ry="6" fill="#d9a13a"/>
+              <path d="M-30 20 Q 0 50 30 20 Z" fill="#1a1714"/>
+              <g class="puff"><path d="M-6 0 q -2 -8 2 -14" stroke="#1a1714" stroke-width="1.5" fill="none" opacity="0.5"/></g>
+            </g>
+            <g transform="translate(200,150)">
+              <ellipse cx="0" cy="20" rx="32" ry="6" fill="#d9a13a"/>
+              <path d="M-30 20 Q 0 50 30 20 Z" fill="#1a1714"/>
+              <g class="puff"><path d="M-6 0 q -2 -8 2 -14" stroke="#1a1714" stroke-width="1.5" fill="none" opacity="0.5"/></g>
+            </g>
+            <g transform="translate(340,150)">
+              <ellipse cx="0" cy="20" rx="32" ry="6" fill="#d9a13a"/>
+              <path d="M-30 20 Q 0 50 30 20 Z" fill="#1a1714"/>
+              <g class="puff"><path d="M-6 0 q -2 -8 2 -14" stroke="#1a1714" stroke-width="1.5" fill="none" opacity="0.5"/></g>
+            </g>
+            <!-- stool legs / floor line -->
+            <line x1="0" y1="240" x2="400" y2="240" stroke="#1a1714" stroke-width="1"/>
+          </svg>
+        </div>
+        <figcaption>
+          <strong>のれんをくぐると、おもちゃ箱。</strong>
+          <span>店内にはおもちゃの箱とベビーカースペース。ご家族でも、安心して。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="room__card">
+        <div class="room__art room__art--bowl" aria-hidden="true">
+          <span class="room__big">650</span>
+          <span class="room__yen">円</span>
+          <span class="room__small">塩らーめん</span>
+        </div>
+        <figcaption>
+          <strong>看板の一杯、¥650。</strong>
+          <span>キラキラの鶏油、澄んだ塩清湯、ストレート細麺。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="room__card">
+        <div class="room__art room__art--family" aria-hidden="true">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="160" fill="#f3ead7"/>
+            <!-- adult -->
+            <circle cx="60" cy="60" r="16" fill="#1a1714"/>
+            <rect x="46" y="78" width="28" height="40" fill="#c8302e"/>
+            <!-- child -->
+            <circle cx="100" cy="80" r="11" fill="#1a1714"/>
+            <rect x="91" y="92" width="18" height="28" fill="#d9a13a"/>
+            <!-- baby (in stroller) -->
+            <rect x="130" y="90" width="40" height="30" rx="6" fill="#2a5266"/>
+            <circle cx="138" cy="125" r="6" fill="#1a1714"/>
+            <circle cx="162" cy="125" r="6" fill="#1a1714"/>
+            <circle cx="150" cy="95" r="7" fill="#f3ead7"/>
+            <!-- handle -->
+            <path d="M170 92 q 14 -8 18 6" stroke="#1a1714" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- ground -->
+            <line x1="0" y1="135" x2="200" y2="135" stroke="#1a1714" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <figcaption>
+          <strong>ベビーカー、そのままどうぞ。</strong>
+          <span>段差は最小限。お子様らーめん ¥350、麺半分でコーン入り。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="room__card">
+        <div class="room__art room__art--quote" aria-hidden="true">
+          <span class="room__quote-mark">「</span>
+          <p>スープが抜群においしかった。<br/>飲んだシメには、もってこい。</p>
+          <span class="room__quote-mark room__quote-mark--end">」</span>
+          <span class="room__quote-cite">— ある日のお客さま</span>
+        </div>
+        <figcaption>
+          <strong>呑んだ帰りの、もう一杯。</strong>
+          <span>あさり塩らーめん ¥850、夜のしめにおすすめ。</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ACCESS / ご案内 ============ -->
+  <section id="access" class="access">
+    <div class="folio">
+      <span class="folio__no">05</span>
+      <span class="folio__title">ご案内</span>
+      <span class="folio__rule"></span>
+      <span class="folio__en">Visit Us</span>
+    </div>
+
+    <div class="access__grid">
+      <div class="access__main">
+        <h2 class="access__head">
+          <span class="access__head-jp">西小山駅前</span>
+          <span class="access__head-en">Right outside Nishi-Koyama station.</span>
+        </h2>
+
+        <dl class="access__list">
+          <div>
+            <dt>住所</dt>
+            <dd>
+              〒142-0062<br/>
+              東京都品川区小山6-4-7
+              <span class="access__list-en">6-4-7 Koyama, Shinagawa-ku, Tokyo</span>
+            </dd>
+          </div>
+          <div>
+            <dt>電話</dt>
+            <dd>
+              <a href="tel:0337881031">03-3788-1031</a>
+              <span class="access__list-en">予約不可 / Walk-in only</span>
+            </dd>
+          </div>
+          <div>
+            <dt>営業</dt>
+            <dd>
+              11:00 – 20:00 ／ 無休<br/>
+              <span class="access__list-en">11 AM – 8 PM, open every day</span>
+            </dd>
+          </div>
+          <div>
+            <dt>支払い</dt>
+            <dd>
+              現金 ／ PayPay<br/>
+              <span class="access__list-en">クレカ・電子マネー不可 / Cash &amp; PayPay only</span>
+            </dd>
+          </div>
+          <div>
+            <dt>禁煙</dt>
+            <dd>
+              全席禁煙 ／ ベビーカー入店可<br/>
+              <span class="access__list-en">Non-smoking. Strollers welcome.</span>
+            </dd>
+          </div>
+        </dl>
+
+        <p class="access__notice">
+          ※ 営業時間は変更になる場合があります。ご来店前にお電話にてご確認ください。
+        </p>
+      </div>
+
+      <aside class="access__map" aria-label="地図">
+        <div class="access__map-frame">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="400" height="400" fill="#ebe0c2"/>
+            <!-- grid -->
+            <g stroke="#d9c8a0" stroke-width="0.6">
+              <line x1="0" y1="80" x2="400" y2="80"/>
+              <line x1="0" y1="160" x2="400" y2="160"/>
+              <line x1="0" y1="240" x2="400" y2="240"/>
+              <line x1="0" y1="320" x2="400" y2="320"/>
+              <line x1="80" y1="0" x2="80" y2="400"/>
+              <line x1="160" y1="0" x2="160" y2="400"/>
+              <line x1="240" y1="0" x2="240" y2="400"/>
+              <line x1="320" y1="0" x2="320" y2="400"/>
+            </g>
+            <!-- rail (Meguro line) -->
+            <line x1="40" y1="200" x2="360" y2="220" stroke="#1a1714" stroke-width="6"/>
+            <line x1="40" y1="200" x2="360" y2="220" stroke="#f3ead7" stroke-width="2" stroke-dasharray="8 8"/>
+            <text x="60" y="190" font-family="'Fraunces', serif" font-size="12" fill="#1a1714">東急目黒線 / Meguro Line</text>
+            <!-- station -->
+            <rect x="180" y="195" width="40" height="22" fill="#1a1714"/>
+            <text x="200" y="210" text-anchor="middle" font-family="'Reggae One', sans-serif" font-size="11" fill="#f3ead7">西小山</text>
+            <!-- shop pin -->
+            <g transform="translate(260 90)">
+              <path d="M0 0 C 20 -40 50 -40 50 -10 C 50 18 25 30 25 50 C 25 30 0 18 0 -10 Z" fill="#c8302e"/>
+              <circle cx="25" cy="-8" r="11" fill="#f3ead7"/>
+              <text x="25" y="-4" text-anchor="middle" font-family="'Reggae One', sans-serif" font-size="13" fill="#c8302e">汐</text>
+            </g>
+            <!-- distance arc from station to pin tip -->
+            <path d="M218 198 Q 250 170 285 140" fill="none" stroke="#1a1714" stroke-width="1.2" stroke-dasharray="4 4"/>
+            <!-- distance label (above pin, leader line to circle) -->
+            <line x1="225" y1="62" x2="278" y2="78" stroke="#1a1714" stroke-width="0.8"/>
+            <text x="220" y="58" text-anchor="end" font-family="'Yusei Magic', sans-serif" font-size="13" fill="#1a1714">徒歩1分 / 約77m</text>
+            <!-- street label -->
+            <text x="40" y="260" font-family="'Fraunces', serif" font-size="11" fill="#a87515" font-style="italic">Koyama 6-chome</text>
+            <!-- compass -->
+            <g transform="translate(350 50)">
+              <circle r="18" fill="none" stroke="#1a1714" stroke-width="1"/>
+              <path d="M0 -15 L 4 0 L 0 4 L -4 0 Z" fill="#c8302e"/>
+              <text x="0" y="-22" text-anchor="middle" font-family="'Fraunces', serif" font-size="10" fill="#1a1714">N</text>
+            </g>
+          </svg>
+        </div>
+        <a class="access__map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/%E5%87%BD%E9%A4%A8%E3%82%89%E3%83%BC%E3%82%81%E3%82%93+%E6%B1%90%E3%81%AE%E3%82%84/@35.6149075,139.6980228,18z/data=!3m1!4b1!4m6!3m5!1s0x60188ad04e3a926f:0xc9d2d4bf082762e6!8m2!3d35.6149075!4d139.6992123">
+          Google マップで開く
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / のれん ============ -->
+  <footer class="foot">
+    <div class="foot__noren" aria-hidden="true">
+      <div class="foot__noren-rod"></div>
+      <div class="foot__noren-cloth">
+        <span>函</span><span>館</span><span>ら</span><span>ー</span><span>め</span><span>ん</span><span>　</span><span>汐</span><span>の</span><span>や</span>
+      </div>
+    </div>
+
+    <div class="foot__row">
+      <div class="foot__col foot__col--brand">
+        <p class="foot__brand">函館らーめん 汐のや</p>
+        <p class="foot__sub">Hakodate Ramen Shionoya — Nishi-Koyama, Tokyo. Since 2016.11.10.</p>
+      </div>
+
+      <div class="foot__col">
+        <p class="foot__label">店舗</p>
+        <p>〒142-0062 東京都品川区小山6-4-7</p>
+        <p><a href="tel:0337881031">03-3788-1031</a></p>
+        <p>11:00 – 20:00 ／ 無休</p>
+      </div>
+
+      <div class="foot__col">
+        <p class="foot__label">サイト案内</p>
+        <p><a href="#story">物語</a> ／ <a href="#kodawari">こだわり</a></p>
+        <p><a href="#menu">お品書き</a> ／ <a href="#room">店内</a></p>
+        <p><a href="#access">ご案内</a></p>
+      </div>
+    </div>
+
+    <p class="foot__disclaimer">
+      © Concept design — 公開情報をもとに制作した非公式のコンセプトサイトです。
+      営業時間・価格・サービス内容の最新情報は、お店へ直接お問い合わせください。
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
