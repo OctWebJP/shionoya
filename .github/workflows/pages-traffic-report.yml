@@ -1,8 +1,8 @@
-name: Daily GitHub Pages Traffic Report
+name: Pages Traffic Report
 
 on:
   schedule:
-    - cron: '15 6 * * *'
+    - cron: '10 0 * * *'   # daily 00:10 UTC (09:10 JST)
   workflow_dispatch:
 
 permissions:
@@ -13,133 +13,87 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch traffic data and open issue
-        uses: actions/github-script@v7
-        with:
-          # If PAGES_TRAFFIC_TOKEN (PAT with `administration:read` + `issues:write`)
-          # is set, use it — it's the only way to read the Traffic API. Otherwise
-          # fall back to GITHUB_TOKEN, which can still open the daily issue but
-          # will note that traffic data is unavailable.
-          github-token: ${{ secrets.PAGES_TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
-          script: |
-            const owner = context.repo.owner;
-            const repo  = context.repo.repo;
-            const hasPat = !!process.env.HAS_PAT;
+      - name: Build report and open issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          TODAY=$(date -u +%Y-%m-%d)
+          YDAY=$(date -u -d "yesterday" +%Y-%m-%dT00:00:00Z)
 
-            const safe = (p) => p.then(r => ({ ok: true, data: r.data }))
-                                 .catch(e => ({ ok: false, status: e.status, message: e.message }));
+          VIEWS=$(gh api "repos/$REPO/traffic/views")
+          PATHS=$(gh api "repos/$REPO/traffic/popular/paths")
+          REFS=$(gh api "repos/$REPO/traffic/popular/referrers")
+          CLONES=$(gh api "repos/$REPO/traffic/clones" || echo '{"count":0,"uniques":0}')
 
-            const [views, clones, refs, paths, pages] = await Promise.all([
-              safe(github.rest.repos.getViews({ owner, repo })),
-              safe(github.rest.repos.getClones({ owner, repo })),
-              safe(github.rest.repos.getTopReferrers({ owner, repo })),
-              safe(github.rest.repos.getTopPaths({ owner, repo })),
-              safe(github.rest.repos.getPages({ owner, repo })),
-            ]);
+          TC=$(jq -r '.count'   <<<"$VIEWS")
+          TU=$(jq -r '.uniques' <<<"$VIEWS")
+          YC=$(jq -r --arg d "$YDAY" '[.views[]|select(.timestamp==$d)][0].count   // 0' <<<"$VIEWS")
+          YU=$(jq -r --arg d "$YDAY" '[.views[]|select(.timestamp==$d)][0].uniques // 0' <<<"$VIEWS")
+          CC=$(jq -r '.count'   <<<"$CLONES")
+          CU=$(jq -r '.uniques' <<<"$CLONES")
 
-            const today = new Date().toISOString().slice(0, 10);
-            const site  = pages.ok && pages.data?.html_url
-              ? pages.data.html_url
-              : `https://${owner.toLowerCase()}.github.io/${repo}/`;
+          {
+            echo "# 📊 GitHub Pages Traffic Report — $TODAY"
+            echo
+            echo "**Repository:** \`$REPO\`  "
+            echo "**Pages site:** https://octwebjp.github.io/${REPO#*/}/"
+            echo
+            echo "## Yesterday ($YDAY)"
+            echo "| Metric | Value |"
+            echo "|---|---|"
+            echo "| Views | $YC |"
+            echo "| Unique visitors | $YU |"
+            echo
+            echo "## Rolling 14-day totals"
+            echo "| Metric | Value |"
+            echo "|---|---|"
+            echo "| Views | $TC |"
+            echo "| Unique visitors | $TU |"
+            echo "| Clones | $CC (unique: $CU) |"
+            echo
+            echo "## Top paths (14d)"
+            if [ "$(jq 'length' <<<"$PATHS")" = "0" ]; then
+              echo "_No path data yet._"
+            else
+              echo "| Path | Views | Uniques |"
+              echo "|---|---:|---:|"
+              jq -r '.[] | "| `\(.path)` | \(.count) | \(.uniques) |"' <<<"$PATHS"
+            fi
+            echo
+            echo "## Top referrers (14d)"
+            if [ "$(jq 'length' <<<"$REFS")" = "0" ]; then
+              echo "_No referrer data yet._"
+            else
+              echo "| Referrer | Views | Uniques |"
+              echo "|---|---:|---:|"
+              jq -r '.[] | "| **\(.referrer)** | \(.count) | \(.uniques) |"' <<<"$REFS"
+            fi
+            echo
+            echo "## Analysis"
+            if [ "$YC" -gt 0 ]; then
+              echo "- Yesterday recorded **$YC views** from **$YU unique visitors**."
+            else
+              echo "- No traffic recorded for yesterday."
+            fi
+            AVG=$(( TC / 14 ))
+            echo "- 14-day daily average: **~$AVG views/day**."
+            if [ "$YC" -gt "$AVG" ] && [ "$AVG" -gt 0 ]; then
+              echo "- 📈 Yesterday was **above** the 14-day average."
+            elif [ "$YC" -lt "$AVG" ]; then
+              echo "- 📉 Yesterday was **below** the 14-day average."
+            fi
+            echo
+            echo "---"
+            echo "> ℹ️ GitHub Pages does not expose raw HTTP access logs. This report is derived from the Repository Traffic API, which returns rolling 14-day view/referrer/path data. For per-request logs, add a client-side analytics tag (e.g. GoUATAG, Plausible) or front the site with a CDN that provides logs."
+          } > report.md
 
-            const table = (rows, cols) =>
-              !rows || rows.length === 0
-                ? '_No data._'
-                : [
-                    '| ' + cols.map(c => c.h).join(' | ') + ' |',
-                    '| ' + cols.map(() => '---').join(' | ') + ' |',
-                    ...rows.map(r => '| ' + cols.map(c => String(r[c.k] ?? '')).join(' | ') + ' |'),
-                  ].join('\n');
+          # Ensure label exists (best-effort)
+          gh label create traffic-report --repo "$REPO" --color "0E8A16" \
+            --description "Automated GitHub Pages traffic reports" 2>/dev/null || true
 
-            const viewRows = views.ok
-              ? views.data.views.slice(-14).map(v => ({ date: v.timestamp.slice(0,10), count: v.count, uniques: v.uniques }))
-              : [];
-            const cloneRows = clones.ok
-              ? clones.data.clones.slice(-14).map(v => ({ date: v.timestamp.slice(0,10), count: v.count, uniques: v.uniques }))
-              : [];
-
-            const trafficAvailable = views.ok && clones.ok && refs.ok && paths.ok;
-            const failures = [views, clones, refs, paths]
-              .filter(x => !x.ok)
-              .map(x => `- ${x.status}: ${x.message}`);
-
-            const notice = trafficAvailable
-              ? `> ℹ️ GitHub Pages does not expose raw HTTP access logs. This report uses the repository Traffic API — the standard proxy for Pages analytics (14-day rolling window).`
-              : [
-                  `> ⚠️ **Traffic data unavailable.** The Traffic API requires \`administration:read\`, which the default \`GITHUB_TOKEN\` cannot grant.`,
-                  `>`,
-                  `> **To enable this report:** create a fine-grained PAT with **Administration: Read** and **Issues: Read & write** on this repo, then add it as a repository secret named \`PAGES_TRAFFIC_TOKEN\`.`,
-                  `>`,
-                  `> API errors:`,
-                  ...failures.map(f => `> ${f}`),
-                ].join('\n');
-
-            const summary = trafficAvailable
-              ? [
-                  `## Summary (last 14 days)`,
-                  `- **Views:** ${views.data.count} total, ${views.data.uniques} unique visitors`,
-                  `- **Clones:** ${clones.data.count} total, ${clones.data.uniques} unique cloners`,
-                ].join('\n')
-              : `## Summary\n_Traffic data unavailable — see notice above._`;
-
-            const sections = trafficAvailable ? [
-              `## Daily Views`,
-              table(viewRows, [
-                { h: 'Date', k: 'date' },
-                { h: 'Views', k: 'count' },
-                { h: 'Uniques', k: 'uniques' },
-              ]),
-              ``,
-              `## Top Referrers`,
-              table(refs.data, [
-                { h: 'Referrer', k: 'referrer' },
-                { h: 'Count', k: 'count' },
-                { h: 'Uniques', k: 'uniques' },
-              ]),
-              ``,
-              `## Top Paths`,
-              table(paths.data, [
-                { h: 'Path', k: 'path' },
-                { h: 'Title', k: 'title' },
-                { h: 'Views', k: 'count' },
-                { h: 'Uniques', k: 'uniques' },
-              ]),
-              ``,
-              `## Daily Clones`,
-              table(cloneRows, [
-                { h: 'Date', k: 'date' },
-                { h: 'Clones', k: 'count' },
-                { h: 'Uniques', k: 'uniques' },
-              ]),
-            ].join('\n') : '';
-
-            const body = [
-              `# GitHub Pages Traffic Report — ${today}`,
-              ``,
-              `**Site:** ${site}`,
-              `**Repo:** \`${owner}/${repo}\``,
-              ``,
-              notice,
-              ``,
-              summary,
-              ``,
-              sections,
-              ``,
-              `_Generated by \`.github/workflows/pages-traffic-report.yml\`._`,
-            ].join('\n');
-
-            try {
-              await github.rest.issues.getLabel({ owner, repo, name: 'pages-traffic' });
-            } catch {
-              await github.rest.issues.createLabel({
-                owner, repo, name: 'pages-traffic', color: '0e8a16',
-                description: 'Daily GitHub Pages traffic analysis',
-              }).catch(() => {});
-            }
-
-            await github.rest.issues.create({
-              owner, repo,
-              title: `📊 Pages Traffic Report — ${today}`,
-              body,
-              labels: ['pages-traffic'],
-            });
+          gh issue create --repo "$REPO" \
+            --title "Pages Traffic Report — $TODAY" \
+            --body-file report.md \
+            --label traffic-report
